@@ -1,0 +1,552 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../../sandstone/lib.less';
+
+@font-face {
+    font-family: 'League Gothic';
+    src: url('/media/fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/media/fonts/League_Gothic-webfont.woff') format('woff'),
+         url('/media/fonts/League_Gothic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@linkYellow: #ffcc00;
+
+.grainy-sky() {
+    background: #eeeeee url(/media/img/sandstone/grain.png) repeat;
+    background: url(/media/img/sandstone/bg-gradient-sky.png) repeat-x 0 0,
+                url(/media/img/sandstone/grain.png) repeat 0 0,
+                #eeeeee;
+}
+
+.nav-pointer() {
+    position: relative;
+
+    &:after {
+        display: block;
+        position: absolute;
+        content: '';
+        background: url(/media/img/firefox/desktop/nav-pointer.png) center top no-repeat;
+        width: 193px;
+        height: 39px;
+        bottom: -39px;
+        left: 50%;
+        margin-left: -97px;
+    }
+}
+
+/* {{{ Template overrides */
+
+#outer-wrapper {
+    background: #fff;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#masthead {
+    .grainy-sky;
+    box-shadow: 0 12px 26px -10px rgba(73, 95, 112, 0.9);
+    padding: 0;
+    z-index: 2;
+
+    nav {
+        float: left;
+        margin-top: 6px;
+
+        li {
+            margin-right: @baseLine * 3;
+
+            a {
+                display: inline-block;
+                font-size: @baseFontSize;
+                height: 36px;
+                padding: 12px 0 0;
+            }
+        }
+    }
+}
+
+#main-content {
+    padding: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+#footer-email-form {
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    padding: 0;
+
+    #subscribe-wrapper.columned .form-contents {
+        float: none;
+        width: auto;
+    }
+}
+
+// force dl button links to be white in blue bg footer
+#subscribe-download-wrapper .download-button small.download-other {
+    color: #fff;
+    color: rgba(255, 255, 255, .5);
+
+    a:link {
+        color: #fff;
+        color: rgba(255, 255, 255, .5);
+    }
+}
+
+/* }}} */
+
+#site-header-logo {
+    float: left;
+    width: 140px;
+    margin-right: 100px;
+}
+
+#masthead-logo-nav {
+    clear: both;
+    .clearfix;
+}
+
+#masthead-download-firefox {
+    float: right;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 8px 30px;
+    border-radius: .4em;
+}
+
+.container {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+}
+
+.container-dark() {
+    @text-shadow: 0 -1px 1px rgba(72, 72, 72, 0.5);
+    color: #fff;
+    text-shadow: @text-shadow;
+
+    h2 {
+        color: #fff;
+        text-shadow: @text-shadow;
+    }
+
+    a {
+        color: #fc0;
+    }
+}
+
+#main-content .container {
+    .open-sans-light;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+    padding: (@baseLine * 3) 0 (@baseLine * 2) 0;
+    min-height: (680px - (@baseLine * 5));
+    overflow: hidden;
+
+    h2 {
+        font-size: 48px;
+        margin-bottom: @baseLine * 2;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+.feature-list {
+    .clearfix;
+
+    li {
+        float: left;
+        width: 300px;
+        margin: 0 @baseLine 0 0;
+
+        &.last {
+            margin-right: 0;
+        }
+    }
+}
+
+/* {{{ Trusted badge (index & trusted pages) */
+
+// non en-US gets simpler style
+
+
+// en-US gets fancy circle badge
+html[lang="en-US"] {
+    #trust-badge {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto (@baseLine * 3);
+        border-radius: 50%;
+        background: #fff;
+        background: rgba(255, 255, 255, .65);
+
+        &:after {
+            display: block;
+            position: absolute;
+            bottom: -12px;
+            content: '';
+            height: 17px;
+            width: 100%;
+            #gradient > .radial(center, center, ellipse, closest-side, rgba(0, 0, 0, .25) 0%, rgba(0, 0, 0, 0) 60%);
+        }
+    }
+
+    #trust-badge-content {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 280px;
+        height: 215px;
+        padding-top: 65px;
+        border-radius: 50%;
+        background: #fff;
+        background: rgba(255, 255, 255, .65);
+        box-shadow: inset 0 0 200px rgba(102, 102, 102, .25);
+
+        span {
+            display: block;
+            font-family: 'League Gothic', 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            color: #5d7489;
+        }
+
+        a {
+            font-size: @baseFontSize;
+        }
+    }
+
+    #trust-line1 {
+        font-size: 53px;
+        line-height: 53px;
+    }
+
+    #trust-line2 {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    #trust-line3 {
+        font-size: 61px;
+        line-height: 61px;
+    }
+}
+
+/* }}} */
+
+/* {{{ Speed graph (index & fast pages) */
+
+#speed-graph {
+    height: 250px;
+    width: 900px;
+    overflow: hidden;
+    margin: (@baseLine * 2) 0 0;
+
+    dt {
+        float: left;
+        clear: left;
+        width: 190px;
+        height: 43px;
+        margin-bottom: 0;
+        text-align: right;
+        font-size: @baseFontSize;
+        line-height: 40px;
+        background: url(/media/img/firefox/desktop/sprite-browser-logos.png) right top no-repeat;
+        padding-right: 70px;
+    }
+
+    #speed-opera-next {
+        background-position: right -60px;
+    }
+
+    #speed-chrome {
+        background-position: right -120px;
+    }
+
+    #speed-ie10 {
+        background-position: right -180px;
+    }
+
+    #speed-opera {
+        background-position: right -240px;
+    }
+
+    dd {
+        margin: 0 0 10px 280px;
+        background: #f1f3f6;
+        height: 40px;
+
+        div {
+            background: #bcc6d1;
+            height: 100%;
+            text-align: right;
+
+            .score {
+                display: inline-block;
+                height: 40px;
+                padding-right: 10px;
+                border-right: 1px solid #000;
+                border-right: 1px solid rgba(0, 0, 0, .3);
+                line-height: 40px;
+                color: #fff;
+                font-size: 16px;
+                text-shadow: none;
+            }
+        }
+
+        #speed-fx-rank {
+            width: 98%;
+            background: #ff7f00;
+        }
+
+        #speed-opera-next-rank {
+            width: 82%;
+        }
+
+        #speed-chrome-rank {
+            width: 81%;
+        }
+
+        #speed-ie10-rank {
+            width: 45%
+        }
+
+        #speed-opera-rank {
+            width: 37%;
+        }
+    }
+}
+
+#speed-citation {
+    display: block;
+    text-align: left;
+    padding-left: 280px;
+    margin-bottom: (@baseLine * 3);
+}
+
+/* }}} */
+
+/* {{{ Footer subscribe form & download button */
+
+#subscribe-download-wrapper {
+    background: #0092db;
+    color: #fff;
+    padding: (@baseLine * 2) 0;
+    .clearfix;
+
+    h3 {
+        color: #fff;
+        font-size: 40px;
+        float: none;
+        width: auto;
+        margin-bottom: 30px;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+    }
+
+    .button {
+        padding: 12px 50px;
+        text-transform: uppercase;
+    }
+
+    input[type=email] {
+        padding: 11px 10px;
+    }
+}
+
+#subscribe-wrapper.columned {
+    float: left;
+    width: 400px;
+    margin-right: @baseLine * 4;
+
+    .billboard {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    a {
+        color: #fff;
+        color: rgba(255, 255, 255, .5);
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+/* }}} */
+
+@media (max-width: @breakDesktop) and (min-width: @breakTablet) {
+    .nav-pointer() {
+        &:after {
+            display: none;
+        }
+    }
+
+    #main-content {
+        width: 100%;
+    }
+
+    #masthead {
+        width: 100%;
+
+        nav li {
+            margin-right: 30px;
+        }
+    }
+
+    .container {
+        width: @breakTablet - (@baseLine * 2);
+    }
+
+    #site-header-logo {
+        margin-right: 40px;
+    }
+
+    #speed-graph {
+        width: 700px;
+
+        dt {
+            width: 140px;
+        }
+
+        dd {
+            margin-left: 230px;
+        }
+    }
+
+    #speed-citation {
+        padding-left: 230px;
+    }
+
+    #subscribe-download-wrapper {
+        h3 {
+            font-size: 30px;
+        }
+    }
+
+    #subscribe-wrapper.columned {
+        width: 320px;
+        margin-right: 60px;
+
+        .billboard {
+            width: auto;
+        }
+    }
+
+    #footer-email-form h3 {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: @breakTablet) {
+    .container {
+        width: @breakMobileLandscape - (@baseLine * 2);
+    }
+
+    #masthead {
+        .container {
+            padding-bottom: @baseLine / 2;
+        }
+
+        .toggle {
+            position: absolute;
+        }
+
+        nav {
+            margin: 0;
+            padding: 0;
+            float: none;
+        }
+    }
+
+    #masthead-logo-nav {
+        position: relative;
+    }
+
+    #site-header-logo {
+        position: relative;
+        left: 60px;
+        float: none;
+        margin-right: 0;
+    }
+
+    #masthead-download-firefox, #download-wrapper {
+        display: none;
+    }
+
+    #main-content .container {
+        min-height: 0;
+        font-size: 16px;
+
+        h2 {
+            font-size: 30px;
+        }
+    }
+
+    #speed-graph {
+        width: 440px;
+
+        dt {
+            width: 0px; // has 70px right padding for logo
+        }
+
+        .browser {
+            .visually-hidden();
+        }
+
+        dd {
+            margin-left: 90px;
+        }
+    }
+
+    #speed-citation {
+        padding-left: 90px;
+    }
+
+    #subscribe-wrapper.columned {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+
+    #subscribe-download-wrapper h3 {
+        font-size: 26px;
+    }
+
+    .wide-br {
+        display: none;
+    }
+}
+
+@media (max-width: @breakMobileLandscape) {
+    .container {
+        width: @breakMobile - @baseLine;
+    }
+
+    #speed-graph {
+        width: 300px;
+
+        dt {
+            padding-right: 50px;
+        }
+
+        dd {
+            margin-left: 70px;
+        }
+    }
+
+    #speed-citation {
+        padding-left: 70px;
+    }
+}

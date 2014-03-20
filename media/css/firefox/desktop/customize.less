@@ -1,0 +1,113 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import 'common.less';
+
+// set nav pointer
+#nav-main-customize {
+    .nav-pointer();
+}
+
+#intro {
+    .grainy-sky();
+
+    .container {
+        background: url(/media/img/firefox/desktop/customize/bg-intro.png) center bottom no-repeat;
+        min-height: 300px;
+    }
+}
+
+#designed {
+    .container {
+        overflow: visible;
+        min-height: 400px;
+    }
+
+    img {
+        position: absolute;
+        right: -20px;
+        top: -34px;
+    }
+
+    #designed-copy {
+        width: 380px;
+        text-align: left;
+    }
+}
+
+#customize {
+    background: #d0cbbd;
+
+    .container {
+        min-height: 300px;
+        padding-bottom: 0;
+    }
+
+    .feature-list li a {
+        display: block;
+        background: url(/media/img/firefox/desktop/customize/sprite-customizers.png) -290px top no-repeat;
+        padding-top: 180px;
+        text-transform: uppercase;
+        color: #4e4f53;
+        font-size: 18px;
+        text-shadow: none;
+        .open-sans;
+
+        &:hover {
+            background-position: -290px -438px;
+        }
+
+        &#customize-themes {
+            background-position: 70px top;
+            &:hover {
+                background-position: 70px -438px;
+            }
+        }
+
+        &#customize-awesomebar {
+            background-position: -654px top;
+            &:hover {
+                background-position: -654px -438px;
+            }
+        }
+    }
+}
+
+.customizer {
+    background: #e9e6de;
+
+    .container {
+        min-height: 400px;
+    }
+
+    .next {
+        display: none;
+    }
+}
+
+.js {
+    .customizer .next {
+        display: block;
+    }
+}
+
+/****************************************************************************/
+// @High resolution images for @retina-type displays
+// Desktop
+@media (-webkit-min-device-pixel-ratio: 1.5),
+       (                min-resolution: 1.5dppx),
+       (                min-resolution: 144dpi) {
+
+    #customize .feature-list li a {
+        background-image: url(/media/img/firefox/desktop/customize/sprite-customizers-hires.png);
+        background-size: 1080px 600px;
+    }
+}
+
+@media (max-width: @breakTablet) {
+    // unset nav pointer
+    #nav-main-customize:after {
+        display: none;
+    }
+}
