@@ -1,0 +1,48 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+.main-container {
+    display: table;
+    p {
+        width: 70%;
+        margin: 20px auto;
+    }
+}
+
+.sync {
+    display: table-cell;
+    padding: 20px;
+    width: 50%;
+}
+
+.share {
+    display: table-cell;
+    padding: 20px;
+    width: 50%;
+    background-image: url(/media/img/firefox/australis/glow/glow-rays.png),
+                      url(/media/img/firefox/australis/glow/glow-bg.png);
+    background-position: bottom left, top left;
+    background-repeat: no-repeat, no-repeat;
+}
+
+.share-anim {
+    .disc {
+        &.heart {
+            top: 0;
+            left: 50%;
+            margin-left: -58px;
+            z-index: 3;
+        }
+        &.eye {
+            top: 96px;
+            right: 97px;
+            z-index: 2;
+        }
+        &.check {
+            top: 96px;
+            left: 97px;
+            z-index: 1;
+        }
+    }
+}

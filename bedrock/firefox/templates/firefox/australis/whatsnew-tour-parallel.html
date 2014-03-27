@@ -1,0 +1,13 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. #}
+
+{% extends "/firefox/australis/whatsnew-base.html" %}
+
+{% block site_css %}
+  {{ css('firefox_tour_parallel') }}
+{% endblock %}
+
+{% block js %}
+  {{ js('firefox_australis_tour_whatsnew') }}
+{% endblock  %}

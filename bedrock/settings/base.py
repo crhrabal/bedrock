@@ -163,10 +163,6 @@ MINIFY_BUNDLES = {
         'firefox_all': (
             'css/firefox/all.less',
         ),
-        'firefox_australis_tour': (
-            'css/firefox/australis/australis-ui-tour.less',
-            'css/firefox/australis/australis-tour-page.less',
-        ),
         'firefox_unsupported': (
             'css/firefox/unsupported.less',
         ),
@@ -267,6 +263,18 @@ MINIFY_BUNDLES = {
         'firefox_technology': (
             'css/firefox/technology.less',
             'css/firefox/technology-demos.css',
+        ),
+        'firefox_tour_parallel': (
+            'css/firefox/australis/australis-ui-tour.less',
+            'css/firefox/australis/australis-page-common.less',
+            'css/firefox/australis/sync-animation.less',
+            'css/firefox/australis/australis-page-parallel.less',
+        ),
+        'firefox_tour_stacked': (
+            'css/firefox/australis/australis-ui-tour.less',
+            'css/firefox/australis/australis-page-common.less',
+            'css/firefox/australis/sync-animation.less',
+            'css/firefox/australis/australis-page-stacked.less',
         ),
         'firefox_whatsnew': (
             'css/sandstone/video.less',
@@ -471,13 +479,6 @@ MINIFY_BUNDLES = {
             'js/firefox/australis/browser-tour.js',
             'js/firefox/australis/common.js',
             'js/firefox/australis/whatsnew.js',
-        ),
-        'firefox_australis_tour_whatsnew_b': (
-            'js/libs/jquery.waypoints.min.js',
-            'js/firefox/australis/australis-uitour.js',
-            'js/firefox/australis/browser-tour.js',
-            'js/firefox/australis/common.js',
-            'js/firefox/australis/whatsnew-b.js',
         ),
         'firefox_australis_tour_firstrun': (
             'js/libs/jquery.waypoints.min.js',
